@@ -19,7 +19,7 @@
 * Condition to win the game:
    If the player manages to make all elements of any perticular row OR column OR diagonal same at first time
   that player will win the match.
-  eg.
+  eg ->
              O | O | X      X | X |           | O | O
                | O | X      X | O | O       X | X | O
              X | X | O      X |   | O       X |   | O
