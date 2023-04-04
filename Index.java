@@ -6,6 +6,7 @@ public class Index{
     public static void main(String[] args) {
 
         int choise=1;
+        int Oscore=0, Xscore=0;
 
         while(choise==1){
 
@@ -22,27 +23,37 @@ public class Index{
             while (!gameOver){
 
                 displayBoard(matrix);
-                System.out.println("Enter Player " + player + " ->");
-                int row=sc.nextInt()-1;int col=sc.nextInt()-1;           		//taking inputs
+                System.out.print("Enter Player " + player + " ->");
+                int input=sc.nextInt();
+                int row=-1,col=-1;
+                if(input<10 && input>0){
+                    row=convert(input)[0]; col=convert(input)[1];           		//taking inputs
 
 
-                if(matrix[row][col]!='O' && matrix[row][col]!='X'){
+                    if ( matrix[row][col] != 'O' && matrix[row][col] != 'X' ){
 
-                    matrix[row][col]=player;                             		//adding in matrix
+                        matrix[row][col]=player;                             		//adding in matrix
 
-                    gameOver=isGameOver(matrix) || hasWon(matrix,player);               //check for gameOver
+                        gameOver=isGameOver(matrix) || hasWon(matrix,player);               //check for gameOver
 
-                    if(hasWon(matrix, player)){
-                        System.out.println("Congratulations Player "+player+" has won the game!!");
+                        if(hasWon(matrix, player)){
+                            displayBoard(matrix);
+                            if(player=='O'){Oscore++;}else{Xscore++;}
+                            System.out.println();
+                            System.out.println("Congratulations Player "+player+" has won the game!!");System.out.println();
+                            System.out.println("Scores: ");
+                            System.out.println("Player O: "+Oscore+" Player X: "+Xscore);System.out.println();
+                        }
+
+                        player=(player=='O')?'X':'O';                        		//changing player
+
+                    }else{
+                        System.out.println("Already filled try another block");		//check for duplicate entry
                     }
-
-                    player=(player=='O')?'X':'O';                        		//changing player
-
                 }else{
-                    System.out.println("Already filled try another block");		//check for duplicate entry
+                    System.out.println("Please Enter Values Between 1-9");
                 }
 
-                displayBoard(matrix);
             }
 
             System.out.println("Press 1 to next round 0 to exit");
@@ -52,6 +63,7 @@ public class Index{
         System.out.println();
         System.out.println("Thank You");
     }
+
 
     private static boolean hasWon(char[][] matrix, char player) {
 
@@ -86,6 +98,23 @@ public class Index{
             }
         }
         return true;
+    }
+
+    private static int[] convert(int n){
+        int row=-1,col;
+        int mod=n%3;
+        if(mod==1){
+            col=0;
+        }else if (mod==2) {
+            col=1;
+        } else {
+            col=2;
+        }
+        while(n>0){
+            n-=3;
+            row++;
+        }
+        return new int[]{row,col};
     }
 
     private static void displayBoard(char[][] matrix) {
