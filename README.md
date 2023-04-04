@@ -20,8 +20,10 @@
    If the player manages to make all elements of any perticular row OR column OR diagonal same at first time
   that player will win the match.
   eg.
-                             O | 2 | 3
-                             4 | O | 6
-                             7 | 8 | O
+             O | O | X      X | X |           | O | O
+               | O | X      X | O | O       X | X | O
+             X | X | O      X |   | O       X |   | O
+             
+* If every block is full in the matrix then the game is supposed to be draw.
 
       
