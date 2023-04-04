@@ -41,6 +41,11 @@ public class Index{
                             if(player=='O'){Oscore++;}else{Xscore++;}
                             System.out.println();
                             System.out.println("Congratulations Player "+player+" has won the game!!");System.out.println();
+                        }
+                        if(isGameOver(matrix)){
+                            System.out.println("The game is tied.");System.out.println();
+                        }
+                        if(gameOver){
                             System.out.println("Scores: ");
                             System.out.println("Player O: "+Oscore+" Player X: "+Xscore);System.out.println();
                         }
