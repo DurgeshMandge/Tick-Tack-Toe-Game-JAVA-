@@ -132,8 +132,9 @@ public class Index{
 	
     private static void displayBoard(char[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
-            for (int col = 0; col < matrix[row].length; col++) {
+            for (int col = 0; col < matrix[row].length - 1; col++) {
                 System.out.print(matrix[row][col] + " | ");
+                System.out.print(matrix[row][2]);
             }
             System.out.println();
         }
