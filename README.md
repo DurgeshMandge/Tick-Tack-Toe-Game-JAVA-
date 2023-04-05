@@ -1,4 +1,4 @@
-# Tick-Tack-Toe-Game
+# Tick-Tack-Toe-Game in JAVA
 * 2 Players : 
     Player O & Player X
   There turn will change alternately till the game is over
