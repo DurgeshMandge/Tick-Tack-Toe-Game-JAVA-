@@ -69,7 +69,8 @@ public class Index{
         System.out.println("Thank You");
     }
 
-
+	//Checking whether any player has won the match after the move
+	
     private static boolean hasWon(char[][] matrix, char player) {
 
         for (int i = 0; i < 3; i++) {
@@ -93,6 +94,8 @@ public class Index{
 
         return false;
     }
+	
+	//Cheacking whether the game is over when there is no space remaining for input
 
     private static boolean isGameOver(char[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
@@ -105,6 +108,9 @@ public class Index{
         return true;
     }
 
+	//Coverting the user inputs from numeric to co-ordinates(row,col)
+	//eg. 1=(0,0) , 5=(1,2) , 9=(2,2)
+	
     private static int[] convert(int n){
         int row=-1,col;
         int mod=n%3;
@@ -122,6 +128,8 @@ public class Index{
         return new int[]{row,col};
     }
 
+	//printing the Board consisting of matrix of inputs
+	
     private static void displayBoard(char[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[row].length; col++) {
